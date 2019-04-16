@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.newland.demo</groupId>
+    <artifactId>ms-demo</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <modules>
+        <module>zipkin-server</module>
+        <module>zipkin-client-1</module>
+        <module>zipkin-client-2</module>
+        <module>config-server</module>
+        <module>api-gateway</module>
+        <module>service-A</module>
+        <module>service-B</module>
+        <module>config-demo</module>
+        <module>eureka-server</module>
+        <module>compute-service</module>
+        <module>ribbon-client</module>
+        <module>fegin-client</module>
+        <module>hystrix-demo</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+    </parent>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <docker.plugin.version>0.4.13</docker.plugin.version>
+        <docker.image.prefix>nl-bd-ms</docker.image.prefix>
+        <spring.cloud.version>Edgware.SR1</spring.cloud.version>
+
+        <apache.commons.lang>2.6</apache.commons.lang>
+        <apache.commons.lang3>3.4</apache.commons.lang3>
+        <apache.commons.collection>3.2.2</apache.commons.collection>
+        <apache.commons.codec>1.10</apache.commons.codec>
+        <apache.commons.io>2.5</apache.commons.io>
+
+        <mysql.version>5.1.39</mysql.version>
+        <oracle.version>11.2.0.4.0</oracle.version>
+        <druid.version>1.1.12</druid.version>
+
+        <fastjson.version>1.2.31</fastjson.version>
+        <lombok.version>1.16.18</lombok.version>
+        <guava.version>22.0</guava.version>
+        <mockito.version>2.8.9</mockito.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <scm>
+        <!-- maven release包的仓库url地址 -->
+        <url>http://10.1.4.161:8085/repository/bd-releases/</url>
+        <!-- git地址 -->
+        <connection>scm:git:http://10.1.8.154:7080/BASS-BDCP/micro-service/nl-bd-ms.git</connection>
+        <developerConnection>scm:git:http://10.1.8.154:7080/BASS-BDCP/micro-service/nl-bd-ms.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <dependencies>
+        <!-- apache -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${apache.commons.lang3}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+    </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>bd-releases</id>
+            <name>bd-releases</name>
+            <url>http://10.1.4.161:8085/repository/bd-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>bd-snapshots</id>
+            <name>bd-snapshots</name>
+            <url>http://10.1.4.161:8085/repository/bd-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
