@@ -18,7 +18,7 @@ public class ComputeController {
     private String port;
 
     @GetMapping("/add")
-    public int add(@RequestParam("a") int a, @RequestParam("a") int b) {
+    public int add(@RequestParam("a") int a, @RequestParam("b") int b) {
         System.out.println("输出了，端口：" + port);
         return a + b;
     }
