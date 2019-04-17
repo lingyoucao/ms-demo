@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
  * @author lcs
  */
 @SpringBootApplication
-//@EnableCircuitBreaker
+@EnableCircuitBreaker
 public class RibbonClientApplication {
     @Bean
     @LoadBalanced

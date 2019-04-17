@@ -18,7 +18,7 @@ public class RibbonController {
     RestTemplate restTemplate;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    //@HystrixCommand(fallbackMethod = "addFallBack")
+    @HystrixCommand(fallbackMethod = "addFallBack")
     public String add() {
         return restTemplate.getForEntity("http://compute-service/add?a=10&b=20", String.class).getBody();
     }
