@@ -15,11 +15,13 @@ public class ServiceAController {
 
     @GetMapping("/hello")
     public String hello() {
+        System.out.println("hello api A");
         return "hello api A [" + new Date().toString() + "]";
     }
 
     @GetMapping("/world")
     public String world() {
+        System.out.println("world api A");
         return "world api A [" + new Date().toString() + "]";
     }
 }
